@@ -13,7 +13,7 @@ bool Board::is_O_turn() {
 }
 
 bool Board::is_X_turn() {
-  return cur_mark = X;
+  return cur_mark == X;
 }
 
 void Board::print_board() {
