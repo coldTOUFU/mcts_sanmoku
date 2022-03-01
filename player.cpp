@@ -2,9 +2,8 @@
 
 namespace player {
   void move(Board *board) {
-    int mark_type = board->get_mark_type();
     std::cout << "===============" << std::endl;
-    std::cout << (mark_type == O ? "O" : "X") << "のターン" << std::endl;
+    std::cout << (board->get_mark_type() == O ? "O" : "X") << "のターン" << std::endl;
     std::cout << "現在の盤面" << std::endl;
     board->print_board();
     std::cout << std::endl;

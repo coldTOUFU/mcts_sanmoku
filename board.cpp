@@ -8,23 +8,14 @@ bool Board::put(int place) {
   return true;
 }
 
-bool Board::is_O_turn() {
-  return cur_mark == O;
-}
-
-bool Board::is_X_turn() {
-  return cur_mark == X;
-}
+bool Board::is_O_turn() { return cur_mark == O; }
+bool Board::is_X_turn() { return cur_mark == X; }
 
 void Board::print_board() {
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
-      if (board[i * 3 + j] == NOT_DECIDED) {
-        std::cout << "_"; 
-      }
-      else {
-        std::cout << (board[i * 3 + j] == O ? "O" : "X");
-      }
+      if (board[i * 3 + j] == NOT_DECIDED) { std::cout << "_"; }
+      else { std::cout << (board[i * 3 + j] == O ? "O" : "X"); }
     }
     std::cout << std::endl;
   }
