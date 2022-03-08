@@ -1,5 +1,24 @@
 #include "board.hpp"
 
+void Board::copy_from(Board *b) {
+  std::stack<int> tmp_stack;
+
+  while (!b->put_log.empty()) {
+    tmp_stack.push(b->put_log.top());
+    b->put_log.pop();
+  }
+  while (!tmp_stack.empty()) {
+    int tmp = tmp_stack.top();
+    tmp_stack.pop();
+    b->put_log.push(tmp); // 借りてるbのスタックを元通りにする。
+    put_log.push(tmp);
+  }
+  for (int i = 0; i < 9; i++) {
+    board[i] = b->board[i];
+  }
+  cur_mark = b->cur_mark;
+}
+
 bool Board::put(int place) {
   if (!is_legal(place)) { return false; }
 

@@ -18,6 +18,7 @@ class Board {
     cur_mark = b.cur_mark;
   }
 
+  void copy_from(Board *b);
   bool put(int place);
   bool unput();
   int get_mark_type() { return cur_mark; }
