@@ -5,6 +5,16 @@ bool Board::put(int place) {
 
   board[place] = cur_mark;
   cur_mark = (cur_mark == O ? X : O);
+  put_log.push(place);
+  return true;
+}
+
+bool Board::unput() {
+  if (put_log.empty()) { return false; }
+
+  board[put_log.top()] = NOT_DECIDED;
+  cur_mark = (cur_mark == O ? X : O);
+  put_log.pop();
   return true;
 }
 
@@ -83,23 +93,33 @@ bool Board::is_legal(int place) {
 
 /* 単体テスト */
 int board_unit_test() {
-  Board *board = new Board();
+  Board *board;
 
-  std::cout << "--設置テスト--" << std::endl;
+  std::cout << "--putテスト--" << std::endl;
+  board = new Board();
   std::cout << "正常系(成功する)" << std::endl;
   std::cout << "  成功 -> " << board->put(0 * 3 + 0) << std::endl;
   std::cout << "  成功 -> " << board->put(1 * 3 + 1) << std::endl;
   std::cout << "  成功 -> " << board->put(2 * 3 + 2) << std::endl;
-
-  /* 異常系 */
   std::cout << "異常系(成功しない)" << std::endl;
   std::cout << "  成功 -> " << board->put(-1) << std::endl;
   std::cout << "  成功 -> " << board->put(9) << std::endl;
   std::cout << "  成功 -> " << board->put(1 * 3 + 1) << std::endl;
-
   std::cout << "盤面" << std::endl;
   board->print_board();
+  delete board;
 
+  std::cout << "--unputテスト--" << std::endl;
+  board = new Board();
+  std:: cout << "正常系(成功する)" << std::endl;
+  board->put(0);
+  std::cout << "  盤面(0の位置にXがある)" << std::endl;
+  board->print_board();
+  std::cout << "  成功 -> " << board->unput() << std::endl;
+  std::cout << "  盤面(空になっている)" << std::endl;
+  board->print_board();
+  std::cout << "異常系(失敗する)" << std::endl;
+  std::cout << "  成功 -> " << board->unput() << std::endl;
   delete board;
 
   std::cout << "--勝敗テスト--" << std::endl;
