@@ -12,7 +12,10 @@ int main(void) {
   // board_unit_test();
   // game_node_unit_test();
   // minmax_player_unit_test();
-  pvnp_minmax();
+
+  // pvp();
+  // pvnp();
+  // pvnp_minmax();
 
   return 0;
 }

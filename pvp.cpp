@@ -1,6 +1,6 @@
 #include "pvp.hpp"
 
-int main() {
+void pvp() {
   Board *board = new Board();
   while (!board->is_game_end()) {
     if (board->is_O_turn()) {

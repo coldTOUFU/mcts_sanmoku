@@ -4,8 +4,13 @@
 # 	g++ -o game_node_test main.o board.o game_node.o
 # minmax_player_test: main.o board.o game_node.o minmax_player.o
 # 	g++ -o minmax_player_test main.o board.o game_node.o minmax_player.o
-pvnp_minmax: main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
-	g++ -o pvnp_minmax main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
+
+# pvp: main.o board.o player.o pvp.o
+# 	g++ -o pvp main.o board.o player.o pvp.o
+# pvnp: main.o board.o player.o random_player.o pvnp.o
+# 	g++ -o pvnp main.o board.o player.o random_player.o pvnp.o
+# pvnp_minmax: main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
+# 	g++ -o pvnp_minmax main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
 
 main.o: main.cpp
 	g++ -c main.cpp
