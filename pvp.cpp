@@ -19,6 +19,4 @@ void pvp() {
   else {
     std::cout << "引き分け" << std::endl;
   }
-
-  return 0;
 }
