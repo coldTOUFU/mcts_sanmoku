@@ -1,6 +1,6 @@
-#include "pvnp.hpp"
+#include "pvnp_minmax.hpp"
 
-void pvnp() {
+void pvnp_minmax() {
   Board *board = new Board();
 
   std::cout << "OとXのどちらかを選んでください(Xが先攻)。" << std::endl;
@@ -23,7 +23,7 @@ void pvnp() {
       player::move(board);
     }
     else {
-      random_player::move(board);
+      minmax_player::move(board);
     }
   }
 

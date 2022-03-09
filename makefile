@@ -1,7 +1,11 @@
 # board_test: main.o board.o
 # 	g++ -o board_test main.o board.o
-game_node_test: main.o board.o game_node.o
-	g++ -o game_node_test main.o board.o game_node.o
+# game_node_test: main.o board.o game_node.o
+# 	g++ -o game_node_test main.o board.o game_node.o
+# minmax_player_test: main.o board.o game_node.o minmax_player.o
+# 	g++ -o minmax_player_test main.o board.o game_node.o minmax_player.o
+pvnp_minmax: main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
+	g++ -o pvnp_minmax main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
 
 main.o: main.cpp
 	g++ -c main.cpp
