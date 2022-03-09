@@ -19,13 +19,13 @@ bool GameNode::is_terminal() {
   return board->is_game_end();
 }
 
-/*
-  Boardで勝利判定が出たとき、勝ったのは必ず最後の着手したプレイヤー。
-  そのため、XとOのどちらが勝ったかで値を変えなくて良い。
- */
+/* X目線で勝ったら1、負けたら-1を得点として返す。 */
 int GameNode::utility() {
-  if (board->is_X_win() || board->is_O_win()) {
+  if (board->is_X_win()) {
     return 1;
+  }
+  else if (board->is_O_win()) {
+    return -1;
   }
   else {
     return 0;
