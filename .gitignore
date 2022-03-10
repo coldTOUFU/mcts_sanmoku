@@ -1,4 +1,9 @@
 *.o
+/board_test
+/game_node_test
+/minmax_player_test
 /pvp
 /pvnp
+/pvnp_minmax
+/pvnp_pmc
 
