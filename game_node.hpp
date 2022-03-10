@@ -8,6 +8,11 @@ class GameNode {
  public:
   static const int INF_VALUE = 100;
 
+  GameNode(const GameNode& node) {
+    board = new Board();
+    board->copy_from(node.board);
+  }
+
   GameNode(Board *b) {
     board = new Board();
     board->copy_from(b);
