@@ -11,6 +11,8 @@
 # 	g++ -o pvnp main.o board.o player.o random_player.o pvnp.o
 # pvnp_minmax: main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
 # 	g++ -o pvnp_minmax main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
+pvnp_pmc: main.o board.o game_node.o player.o pmc_player.o pvnp_pmc.o
+	g++ -o pvnp_pmc main.o board.o game_node.o player.o pmc_player.o pvnp_pmc.o
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -28,3 +30,6 @@ random_player.o: random_player.cpp
 	g++ -c random_player.cpp
 board.o: board.cpp
 	g++ -c board.cpp
+
+clean:
+	rm -f ./*.o

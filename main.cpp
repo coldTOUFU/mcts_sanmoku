@@ -5,6 +5,7 @@
 #include "pmc_player.hpp"
 #include "pvnp.hpp"
 #include "pvnp_minmax.hpp"
+#include "pvnp_pmc.hpp"
 #include "pvp.hpp"
 #include "random_player.hpp"
 
@@ -16,6 +17,7 @@ int main(void) {
   // pvp();
   // pvnp();
   // pvnp_minmax();
+  pvnp_pmc();
 
   return 0;
 }
