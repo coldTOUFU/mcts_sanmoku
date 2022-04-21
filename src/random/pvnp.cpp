@@ -1,6 +1,6 @@
-#include "pvnp_pmc.hpp"
+#include "pvnp.hpp"
 
-void pvnp_pmc() {
+void pvnp() {
   Board *board = new Board();
 
   std::cout << "OとXのどちらかを選んでください(Xが先攻)。" << std::endl;
@@ -23,7 +23,7 @@ void pvnp_pmc() {
       player::move(board);
     }
     else {
-      pmc_player::move(board);
+      random_player::move(board);
     }
   }
 
@@ -37,3 +37,9 @@ void pvnp_pmc() {
     std::cout << "引き分け" << std::endl;
   }
 }
+
+int main(int argc, char* argv[]) {
+  pvnp();
+  return 0;
+}
+

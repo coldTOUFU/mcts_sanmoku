@@ -1,6 +1,6 @@
-#include "pvnp_minmax.hpp"
+#include "pvnp_pmc.hpp"
 
-void pvnp_minmax() {
+void pvnp_pmc() {
   Board *board = new Board();
 
   std::cout << "OとXのどちらかを選んでください(Xが先攻)。" << std::endl;
@@ -23,7 +23,7 @@ void pvnp_minmax() {
       player::move(board);
     }
     else {
-      minmax_player::move(board);
+      pmc_player::move(board);
     }
   }
 
@@ -36,4 +36,9 @@ void pvnp_minmax() {
   else {
     std::cout << "引き分け" << std::endl;
   }
+}
+
+int main(int argc, char* argv[]) {
+  pvnp_pmc();
+  return 0;
 }

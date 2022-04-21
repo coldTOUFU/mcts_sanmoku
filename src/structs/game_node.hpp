@@ -8,6 +8,10 @@ class GameNode {
  public:
   static const int INF_VALUE = 100;
 
+  GameNode() {
+    board = new Board();
+  }
+
   GameNode(const GameNode& node) {
     board = new Board();
     board->copy_from(node.board);
@@ -30,7 +34,7 @@ class GameNode {
     board->print_board();
   };
 
- private:
+ protected:
   Board *board;
 };
 

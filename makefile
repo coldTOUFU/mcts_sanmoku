@@ -1,35 +1,34 @@
-# board_test: main.o board.o
-# 	g++ -o board_test main.o board.o
-# game_node_test: main.o board.o game_node.o
-# 	g++ -o game_node_test main.o board.o game_node.o
-# minmax_player_test: main.o board.o game_node.o minmax_player.o
-# 	g++ -o minmax_player_test main.o board.o game_node.o minmax_player.o
+all: pvp pvnp_random pvnp_minmax pvnp_pmc
 
-# pvp: main.o board.o player.o pvp.o
-# 	g++ -o pvp main.o board.o player.o pvp.o
-# pvnp: main.o board.o player.o random_player.o pvnp.o
-# 	g++ -o pvnp main.o board.o player.o random_player.o pvnp.o
-# pvnp_minmax: main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
-# 	g++ -o pvnp_minmax main.o board.o game_node.o player.o minmax_player.o pvnp_minmax.o
-pvnp_pmc: main.o board.o game_node.o player.o pmc_player.o pvnp_pmc.o
-	g++ -o pvnp_pmc main.o board.o game_node.o player.o pmc_player.o pvnp_pmc.o
+pvp: ./out/obj/structs/board.o ./out/obj/player/player.o ./out/obj/pvp/pvp.o
+	g++ -o ./out/pvp ./out/obj/structs/board.o ./out/obj/player/player.o ./out/obj/pvp/pvp.o
+pvnp_random: ./out/obj/structs/board.o ./out/obj/player/player.o ./out/obj/random/random_player.o ./out/obj/random/pvnp.o
+	g++ -o ./out/pvnp_random ./out/obj/structs/board.o ./out/obj/player/player.o ./out/obj/random/random_player.o ./out/obj/random/pvnp.o
+pvnp_minmax: ./out/obj/structs/board.o ./out/obj/structs/game_node.o ./out/obj/player/player.o ./out/obj/minmax/minmax_player.o ./out/obj/minmax/pvnp_minmax.o
+	g++ -o ./out/pvnp_minmax ./out/obj/structs/game_node.o ./out/obj/structs/board.o ./out/obj/player/player.o ./out/obj/minmax/minmax_player.o ./out/obj/minmax/pvnp_minmax.o
+pvnp_pmc: ./out/obj/structs/board.o ./out/obj/structs/game_node.o ./out/obj/player/player.o ./out/obj/pmc/pmc_player.o ./out/obj/pmc/pvnp_pmc.o
+	g++ -o ./out/pvnp_pmc ./out/obj/structs/board.o ./out/obj/structs/game_node.o ./out/obj/player/player.o ./out/obj/pmc/pmc_player.o ./out/obj/pmc/pvnp_pmc.o
 
-main.o: main.cpp
-	g++ -c main.cpp
-pmc_player.o: pmc_player.cpp
-	g++ -c pmc_player.cpp
-minmax_player.o: minmax_player.cpp
-	g++ -c minmax_player.cpp
-game_node.o: game_node.cpp
-	g++ -c game_node.cpp
-pvnp.o: pvnp.cpp
-	g++ -c pvnp.cpp
-player.o: player.cpp
-	g++ -c player.cpp
-random_player.o: random_player.cpp
-	g++ -c random_player.cpp
-board.o: board.cpp
-	g++ -c board.cpp
+./out/obj/pmc/pvnp_pmc.o: ./src/pmc/pvnp_pmc.cpp
+	g++ -c ./src/pmc/pvnp_pmc.cpp -o ./out/obj/pmc/pvnp_pmc.o
+./out/obj/pmc/pmc_player.o: ./src/pmc/pmc_player.cpp
+	g++ -c ./src/pmc/pmc_player.cpp -o ./out/obj/pmc/pmc_player.o
+./out/obj/minmax/pvnp_minmax.o: ./src/minmax/pvnp_minmax.cpp
+	g++ -c ./src/minmax/pvnp_minmax.cpp -o ./out/obj/minmax/pvnp_minmax.o
+./out/obj/minmax/minmax_player.o: ./src/minmax/minmax_player.cpp
+	g++ -c ./src/minmax/minmax_player.cpp -o ./out/obj/minmax/minmax_player.o
+./out/obj/random/pvnp.o: ./src/random/pvnp.cpp
+	g++ -c ./src/random/pvnp.cpp -o ./out/obj/random/pvnp.o
+./out/obj/random/random_player.o: ./src/random/random_player.cpp
+	g++ -c ./src/random/random_player.cpp -o ./out/obj/random/random_player.o
+./out/obj/pvp/pvp.o: ./src/pvp/pvp.cpp
+	g++ -c ./src/pvp/pvp.cpp -o ./out/obj/pvp/pvp.o
+./out/obj/player/player.o: ./src/player/player.cpp
+	g++ -c ./src/player/player.cpp -o ./out/obj/player/player.o
+./out/obj/structs/game_node.o: ./src/structs/game_node.cpp
+	g++ -c ./src/structs/game_node.cpp -o ./out/obj/structs/game_node.o
+./out/obj/structs/board.o: ./src/structs/board.cpp
+	g++ -c ./src/structs/board.cpp -o ./out/obj/structs/board.o
 
 clean:
-	rm -f ./*.o
+	rm -f ./out/obj/*/*.o ./out/structs ./out/pvp ./out/random ./out/minmax ./out/pmc

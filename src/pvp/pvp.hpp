@@ -1,8 +1,8 @@
 #ifndef PVP_HPP_
 #define PVP_HPP_
 
-#include "board.hpp"
-#include "player.hpp"
+#include "../structs/board.hpp"
+#include "../player/player.hpp"
 
 void pvp();
 

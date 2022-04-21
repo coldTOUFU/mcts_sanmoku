@@ -2,7 +2,7 @@
 #define RANDOM_PLAYER_HPP_
 
 #include <random>
-#include "board.hpp"
+#include "../structs/board.hpp"
 
 namespace random_player {
   void move(Board *board);

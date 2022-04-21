@@ -20,3 +20,8 @@ void pvp() {
     std::cout << "引き分け" << std::endl;
   }
 }
+
+int main(int argc, char* argv[]) {
+  pvp();
+  return 0;
+}

@@ -5,8 +5,8 @@
 #include <utility>
 #include <vector>
 #include <random>
-#include "board.hpp"
-#include "game_node.hpp"
+#include "../structs/board.hpp"
+#include "../structs/game_node.hpp"
 
 namespace pmc_player {
   void move(Board *board);
