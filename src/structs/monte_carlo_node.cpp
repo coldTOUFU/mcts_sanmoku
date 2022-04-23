@@ -1,19 +1,14 @@
 #include "monte_carlo_node.hpp"
 
-MonteCarloNode* MonteCarloNode::best_child() {
+MonteCarloNode* MonteCarloNode::best_child(int play_cnt_sum) {
   if (!has_children()) { return NULL; }
 
-  int children_play_cnt = 0;
-  for (const auto& child: children) {
-    children_play_cnt += child->play_cnt;
-  }
-
   MonteCarloNode* best_node = NULL;
-  double best_ucb1 = 0;
+  double best_ucb1 = -1;
   for (const auto& child: children) {
     if (child->play_cnt == 0) { return child; }
 
-    double ucb1 = (double)child->win_cnt / child->play_cnt + std::sqrt(2.0 * std::log2(children_play_cnt) / child->play_cnt);
+    double ucb1 = (double)child->win_cnt / child->play_cnt + std::sqrt(2.0 * std::log2(play_cnt_sum) / child->play_cnt);
     if (ucb1 > best_ucb1) {
       best_node = child;
       best_ucb1 = ucb1;

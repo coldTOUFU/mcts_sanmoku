@@ -10,7 +10,7 @@
 
 namespace mcts_player {
   void move(Board *board);
-  int monte_carlo_tree_search(Board *board, int expansion_n = 5, int playout_limit = 1000);
+  int monte_carlo_tree_search(Board *board, int expansion_n = 5, int playout_limit = 10000);
 }
 
 #endif // MCTS_PLAYER_HPP_

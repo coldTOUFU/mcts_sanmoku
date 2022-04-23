@@ -21,7 +21,11 @@ namespace mcts_player {
 
     while (playout_cnt < playout_limit) {
       if (cur_node->has_children()) {
-        cur_node = cur_node->best_child();
+        cur_node = cur_node->best_child(root_node->get_play_cnt());
+        if (cur_node == NULL) {
+          std::cerr << "best_childがNULLです。" << std::endl;
+          exit(1);
+        }
       }
       else {
         if (cur_node->get_play_cnt() >= expansion_n && !cur_node->is_terminal()) {
@@ -36,6 +40,8 @@ namespace mcts_player {
             if (has_won) { cur_node-> increment_win_cnt(); }
             cur_node = cur_node->get_parent();
           }
+          cur_node->increment_play_cnt();
+          if (has_won) { cur_node->increment_win_cnt(); }
         }
       }
     }

@@ -70,7 +70,7 @@ class MonteCarloNode {
     }
   }
 
-  MonteCarloNode* best_child();
+  MonteCarloNode* best_child(int play_cnt_sum);
 
   bool has_won_playout();
 
