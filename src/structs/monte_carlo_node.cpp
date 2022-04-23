@@ -43,8 +43,6 @@ int MonteCarloNode::best_hand() {
   int best_hand = -1;
   int play_cnt_max = -1;
   for (const auto& child: children) {
-    printf("hand: %d\n", child->last_hand());
-    printf("cnt: %d\n", child->play_cnt);
     if (child->play_cnt > play_cnt_max) {
       best_hand = child->last_hand();
       play_cnt_max = child->play_cnt;
