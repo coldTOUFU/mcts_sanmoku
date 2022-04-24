@@ -32,7 +32,7 @@ namespace mcts_player {
           cur_node->expand_children();
         }
         else {
-          bool has_won = cur_node->has_won_playout();
+          bool has_won = cur_node->has_won_playout(board->get_mark_type());
           playout_cnt++;
 
           while (!cur_node->is_root()) {

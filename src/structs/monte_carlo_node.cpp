@@ -18,7 +18,7 @@ MonteCarloNode* MonteCarloNode::best_child(int play_cnt_sum) {
   return best_node;
 }
 
-bool MonteCarloNode::has_won_playout() {
+bool MonteCarloNode::has_won_playout(int my_mark) {
   std::random_device seed_gen;
   std::default_random_engine rand_engine(seed_gen());
   Board *b = new Board(); b->copy_from(board);
@@ -32,8 +32,8 @@ bool MonteCarloNode::has_won_playout() {
     b->put(hands[0]);
   }
 
-  if (board->get_mark_type() == X && b->is_X_win()) { return true; }
-  if (board->get_mark_type() == O && b->is_O_win()) { return true; }
+  if (my_mark == X && b->is_X_win()) { return true; }
+  if (my_mark == O && b->is_O_win()) { return true; }
   return false;
 }
 

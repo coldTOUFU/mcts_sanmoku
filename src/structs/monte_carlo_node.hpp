@@ -72,7 +72,7 @@ class MonteCarloNode {
 
   MonteCarloNode* best_child(int play_cnt_sum);
 
-  bool has_won_playout();
+  bool has_won_playout(int my_mark);
 
   int best_hand();
 
